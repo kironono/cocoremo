@@ -1,0 +1,30 @@
+# vim:fenc=utf-8 ff=unix ft=yaml :
+
+version: "2"
+services:
+  app:
+    build:
+      context: "./docker/cocoremo"
+      dockerfile: "Dockerfile"
+    volumes:
+      - ".:/app"
+      - "bundle-data:/usr/local/bundle"
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    tty: true
+    stdin_open: true
+    command: "bundle exec rails s -p 3000 -b '0.0.0.0'"
+  db:
+    build:
+      context: "./docker/postgres"
+      dockerfile: "Dockerfile"
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+
+volumes:
+  bundle-data:
+    driver: "local"
+  db-data:
+    driver: "local"
