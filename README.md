@@ -1,6 +1,6 @@
 # Cocoremo
 
-Cocorimo is a smart home service.
+Cocoremo is a smart home service.
 
 ## Setup
 
