@@ -16,6 +16,12 @@ Install ruby gems.
 docker-compose run --rm app bundle install
 ```
 
+Install yarn integrity files.
+
+```
+docker-compose run --rm app yarn install
+```
+
 Edit configuration files.
 
 * config/secrets.yml
