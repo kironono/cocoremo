@@ -1,24 +1,51 @@
-# README
+# Cocoremo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Cocorimo is a smart home service.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+Build docker container image.
 
-* System dependencies
+```
+docker-compose build
+```
 
-* Configuration
+Install ruby gems.
 
-* Database creation
+```
+docker-compose run --rm app bundle install
+```
 
-* Database initialization
+Edit configuration files.
 
-* How to run the test suite
+* config/secrets.yml
+* config/database.yml
+* config/cable.yml
 
-* Services (job queues, cache servers, search engines, etc.)
+Create database and schema migration.
 
-* Deployment instructions
+```
+docker-compose run --rm app rails db:create
+docker-compose run --rm app rails db:migrate
+```
 
-* ...
+Run servers.
+
+```
+docker-compose up
+```
+
+## Development
+
+### Test
+
+Run test
+
+```
+docker-compose run --rm app rspec
+```
+
+
+## License
+
+Cocoremo is licensed under the [MIT license](LICENSE).
