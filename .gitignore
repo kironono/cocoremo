@@ -22,3 +22,7 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore Testing files.
+/spec/examples.txt
+/spec/coverage
