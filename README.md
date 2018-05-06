@@ -1,5 +1,7 @@
 # Cocoremo
 
+[![CircleCI](https://circleci.com/gh/kironono/cocoremo.svg?style=shield)](https://circleci.com/gh/kironono/cocoremo)
+
 Cocoremo is a smart home service.
 
 ## Setup
