@@ -1,0 +1,22 @@
+h2
+  | Home appliances list
+
+table border=1
+  thead
+    tr
+      th
+        | name
+      th
+        | description
+  tbody
+    tr
+      - @home_appliances.each do |home_appliance|
+        td
+          = home_appliance.name
+        td
+          = home_appliance.description
+        td
+          ul
+            li
+              a href=edit_home_appliance_path(id: home_appliance.id)
+                | Edit

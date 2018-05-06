@@ -9,6 +9,7 @@ class User < ApplicationRecord
     dependent: :delete_all # or :destroy if you need callbacks
 
   has_many :node_devices, foreign_key: :user_id, dependent: :destroy
+  has_many :home_appliances, foreign_key: :user_id, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

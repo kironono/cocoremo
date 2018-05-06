@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root to: "top#index"
 
   resources :node_devices, only: [:index, :edit, :update]
+  resources :home_appliances, expect: [:show]
 
   scope module: :api, defaults: { format: 'json' } do
     constraints subdomain: 'api', format: 'json' do
