@@ -1,0 +1,21 @@
+h2
+  | Edit node device
+
+table border=1
+  thead
+    tr
+      th
+        | name
+      th
+        | description
+
+  tbody
+    tr
+      td
+        = @node_device.name
+      td
+        = @node_device.description
+
+div.contorl
+  a href=node_devices_path
+    | Cancel

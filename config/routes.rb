@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   root to: "top#index"
 
-  resources :node_devices
+  resources :node_devices, only: [:index, :edit, :update]
 
   scope module: :api, defaults: { format: 'json' } do
     constraints subdomain: 'api', format: 'json' do

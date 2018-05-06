@@ -8,6 +8,8 @@ class User < ApplicationRecord
     foreign_key: :resource_owner_id,
     dependent: :delete_all # or :destroy if you need callbacks
 
+  has_many :node_devices, foreign_key: :user_id, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

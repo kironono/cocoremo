@@ -1,2 +1,24 @@
 h2
-  | node devices
+  | Node devices list
+
+table border=1
+  thead
+    tr
+      th
+        | name
+      th
+        | description
+      th
+
+  tbody
+    tr
+      - @node_devices.each do |node_device|
+        td
+          = node_device.name
+        td
+          = node_device.description
+        td
+          ul
+            li
+              a href=edit_node_device_path(id: node_device.id)
+                | Edit
