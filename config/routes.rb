@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  use_doorkeeper
+
   devise_for :users
 
   authenticated :user do
@@ -13,6 +15,9 @@ Rails.application.routes.draw do
   scope module: :api, defaults: { format: 'json' } do
     constraints subdomain: 'api', format: 'json' do
       namespace :v1 do
+        resource :user, only: [:show]
+
+        match "/", to: "application#not_found", via: :all
         match "*path", to: "application#not_found", via: :all
       end
     end
