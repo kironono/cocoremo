@@ -40,7 +40,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'devise-i18n'
 
-gem 'doorkeeper'
+gem 'doorkeeper', '~> 4.2', '< 4.3'
 gem 'doorkeeper-i18n'
 
 group :development, :test do
