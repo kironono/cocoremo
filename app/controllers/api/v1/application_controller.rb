@@ -4,10 +4,10 @@ class Api::V1::ApplicationController < ActionController::Base
 
   attr_reader :current_user
 
-  before_action -> { doorkeeper_authorize! :read }, only: %i(index show)
-  before_action only: %i(create update destroy) do
-    doorkeeper_authorize! :write
-  end
+  # before_action -> { doorkeeper_authorize! :read }, only: %i(index show)
+  # before_action only: %i(create update destroy) do
+  #   doorkeeper_authorize! :write
+  # end
 
   def not_found
     payload = {

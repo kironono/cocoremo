@@ -11,13 +11,16 @@ Rails.application.routes.draw do
   end
   root to: "top#index"
 
-  resources :node_devices, only: [:index, :edit, :update]
   resources :home_appliances, expect: [:show]
+  resources :node_devices, only: [:index, :edit, :update]
+  # resources :node_device_registration_requests, only: [:create]
 
   scope module: :api, defaults: { format: 'json' } do
     constraints subdomain: 'api', format: 'json' do
       namespace :v1 do
         resource :user, only: [:show]
+
+        resources :node_devices, only: [:create]
 
         match "/", to: "application#not_found", via: :all
         match "*path", to: "application#not_found", via: :all
